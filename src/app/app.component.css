@@ -120,3 +120,7 @@ button {
   padding: 20px;
   margin-left: 50px;
 }
+
+.table-wrapper > button {
+  margin-bottom: 5px;
+}

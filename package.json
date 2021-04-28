@@ -6,7 +6,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build"
+    "build": "ng build",
+    "lint": "ng lint"
   },
   "author": "Diana Gruzdeva",
   "license": "ISC",

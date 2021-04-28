@@ -4,6 +4,7 @@
 
 <main>
   <section class="table-wrapper">
+    <button type="button" (click)="edit(null)">Добавить студента</button>
     <table>
       <thead>
         <tr>
@@ -27,6 +28,7 @@
             <button type="button" (click)="sortBirthAsc()">↑</button>
             <button type="button" (click)="sortBirthDesc()">↓</button>
           </th>
+          <th>Редактировать</th>
           <th>Удалить</th>
         </tr>
       </thead>
@@ -42,6 +44,7 @@
           <td>{{student.middleName}}</td>
           <td>{{student.averageMark}}</td>
           <td>{{getBirth(student.birth)}}</td>
+          <td><button (click)="edit(student)">✐</button></td>
           <td><button (click)="deleteByButton(student)">X</button></td>
         </tr>
       </tbody>
@@ -93,4 +96,10 @@
       <button type="button" (click)="cancel()">Отменить</button>
     </div>
   </section>
+
+  <add-form *ngIf="editWindowShown" 
+            [student]="studentToEdit" 
+            (save)="save($event)" 
+            (cancelEdit)="cancelEdit()">
+  </add-form>
 </main>

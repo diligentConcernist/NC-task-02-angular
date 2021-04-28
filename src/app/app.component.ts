@@ -9,7 +9,7 @@ import { Student } from "./student";
 
 export class AppComponent implements OnInit {
   fetched: boolean = false;
-  students: Student[] | null = null;
+  students: Student[] = [];
 
   isHighlighted: boolean = true;
 
@@ -19,11 +19,14 @@ export class AppComponent implements OnInit {
   studentToDelete: Student | null = null;
 
   showPopUp: boolean = false;
+  editWindowShown: boolean = false;
 
   selectedAverageMark: string = "";
 
   dateFrom: string = "";
   dateTo: string = "";
+
+  studentToEdit: Student | null = null;
 
   ngOnInit(): void {
     fetch("/assets/students-list.json")
@@ -32,7 +35,7 @@ export class AppComponent implements OnInit {
         await new Promise((res) => setTimeout(res, 100));
         this.fetched = true;
         this.students = data;
-      })
+      });
   }
 
   private sortAscending(a: string | number | Date,
@@ -235,5 +238,26 @@ export class AppComponent implements OnInit {
   cancel(): void {
     this.showPopUp = !this.showPopUp;
     this.studentToDelete = null;
+  }
+
+  save(student: Student): void {
+    if (this.studentToEdit === null) {
+      this.students.splice(this.students.length, 0, student);
+    } else {
+      const index = this.students.indexOf(this.studentToEdit);
+      this.students.splice(index, 1, student);
+      this.studentToEdit = null;
+    }
+    this.editWindowShown = false;
+  }
+
+  edit(student: Student | null): void {
+    this.editWindowShown = true;
+    this.studentToEdit = student;
+  }
+
+  cancelEdit(): void {
+    this.studentToEdit = null;
+    this.editWindowShown = false;
   }
 }
