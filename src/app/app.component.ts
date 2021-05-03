@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { Student } from "./student";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class AppComponent implements OnInit {
@@ -28,6 +29,12 @@ export class AppComponent implements OnInit {
 
   studentToEdit: Student | null = null;
 
+  constructor(private cdr: ChangeDetectorRef) {
+    setTimeout(() => {
+      this.cdr.detectChanges();
+    }, 1000);
+  }
+
   ngOnInit(): void {
     fetch("/assets/students-list.json")
       .then(res => res.json())
@@ -36,6 +43,10 @@ export class AppComponent implements OnInit {
         this.fetched = true;
         this.students = data;
       });
+  }
+
+  ngDoCheck(): void {
+    this.cdr.detectChanges();
   }
 
   private sortAscending(a: string | number | Date,
