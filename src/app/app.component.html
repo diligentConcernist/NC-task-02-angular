@@ -42,7 +42,7 @@
           <td>{{student.lastName}}</td>
           <td>{{student.firstName}}</td>
           <td>{{student.middleName}}</td>
-          <td>{{student.averageMark}}</td>
+          <td>{{student.averageMark | format}}</td>
           <td>{{getBirth(student.birth)}}</td>
           <td><button (click)="edit(student)">✐</button></td>
           <td><button (click)="deleteByButton(student)">X</button></td>
