@@ -4,12 +4,14 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AddFormComponent } from "./add-form/add-form.component";
 import { AppComponent } from "./app.component";
+import { NameFormat } from "./app.name-format.pipe";
 import { NumberFormat } from "./app.number-format.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     AddFormComponent,
+    NameFormat,
     NumberFormat,
   ],
   imports: [

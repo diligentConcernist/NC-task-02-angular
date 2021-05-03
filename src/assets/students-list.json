@@ -68,5 +68,12 @@
     "middleName": "Дмитриевна",
     "averageMark": 1.04,
     "birth": "1981-12-23"
+  },
+  {
+    "lastName": "сОкОлОвА",
+    "firstName": "арИНА",
+    "middleName": "ИваНОвна",
+    "averageMark": 3.54,
+    "birth": "1976-01-17"
   }
 ]

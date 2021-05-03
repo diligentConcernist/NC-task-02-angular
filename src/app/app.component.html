@@ -39,10 +39,10 @@
           [class.hiddenByMark]="filterByAverageMark(student.averageMark)"
           [class.firstNameFound]="findStudentByFirstName(student.firstName)"
           [class.lastNameFound]="findStudentByLastName(student.lastName)">
-          <td>{{student.lastName}}</td>
-          <td>{{student.firstName}}</td>
-          <td>{{student.middleName}}</td>
-          <td>{{student.averageMark | format}}</td>
+          <td>{{student.lastName | format_name}}</td>
+          <td>{{student.firstName | format_name}}</td>
+          <td>{{student.middleName | format_name}}</td>
+          <td>{{student.averageMark | format_number}}</td>
           <td>{{getBirth(student.birth)}}</td>
           <td><button (click)="edit(student)">✐</button></td>
           <td><button (click)="deleteByButton(student)">X</button></td>

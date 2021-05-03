@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
   
 @Pipe({
-    name: 'format'
+    name: 'format_number'
 })
 
 export class NumberFormat implements PipeTransform {
