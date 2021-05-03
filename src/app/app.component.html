@@ -34,7 +34,7 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let student of students" [class.higlited]="student.averageMark < 3 && isHighlighted"
+        <tr hand_over *ngFor="let student of students" [class.higlited]="student.averageMark < 3 && isHighlighted"
           [class.hiddenByBirth]="filterByDate(getBirthAsDate(student.birth))"
           [class.hiddenByMark]="filterByAverageMark(student.averageMark)"
           [class.firstNameFound]="findStudentByFirstName(student.firstName)"
