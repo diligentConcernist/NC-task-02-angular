@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
 
   studentToEdit: Student | null = null;
 
+  default = "not much to say";
+
   constructor(private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.cdr.detectChanges();
