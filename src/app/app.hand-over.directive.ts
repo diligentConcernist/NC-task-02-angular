@@ -1,7 +1,7 @@
-import { Directive, ElementRef, Renderer2, HostListener } from "@angular/core";
+import { Directive, ElementRef, HostListener, Renderer2 } from "@angular/core";
 
 @Directive({
-  selector: '[hand_over]'
+  selector: "[hand_over]"
 })
 export class HandOverDirective {
 
@@ -10,12 +10,12 @@ export class HandOverDirective {
   }
 
   @HostListener("mouseenter")
-  public onMouseEnter() {
+  public onMouseEnter(): void {
     this.setToHighlighted(true);
   }
 
   @HostListener("mouseleave")
-  public onMouseLeave() {
+  public onMouseLeave(): void {
     this.setToHighlighted(false);
   }
 

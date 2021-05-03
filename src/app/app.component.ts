@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, OnInit } from "@angular/core";
 import { Student } from "./student";
 
 @Component({
@@ -8,7 +8,7 @@ import { Student } from "./student";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
   fetched: boolean = false;
   students: Student[] = [];
 
@@ -28,8 +28,6 @@ export class AppComponent implements OnInit {
   dateTo: string = "";
 
   studentToEdit: Student | null = null;
-
-  default = "not much to say";
 
   constructor(private cdr: ChangeDetectorRef) {
     setTimeout(() => {

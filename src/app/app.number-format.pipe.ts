@@ -1,12 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
-  
+import { Pipe, PipeTransform } from "@angular/core";
+
 @Pipe({
-    name: 'format_number'
+    name: "format_number"
 })
 
 export class NumberFormat implements PipeTransform {
-  transform(value: number, args?: any): string {
-      
+  transform (value: number): string {
     return value.toString().replace(".", ",");
   }
 }

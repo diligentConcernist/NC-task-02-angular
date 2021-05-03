@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { AddFormModule } from "./add-form/add-form.module"
+import { AddFormModule } from "./add-form/add-form.module";
 import { CommentDirective } from "./app.comment.directive";
 import { AppComponent } from "./app.component";
 import { HandOverDirective } from "./app.hand-over.directive";
